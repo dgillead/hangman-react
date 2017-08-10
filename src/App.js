@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       puzzleWord: WORDS[Math.floor(Math.random()*WORDS.length)],
-      guessedLetters: []
+      guessedLetters: ['']
     }
   }
 
@@ -18,7 +18,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Hang Man</h2>
         </div>
           <DisplayPuzzleWord word={this.state.puzzleWord} guessedLetters={this.state.guessedLetters} />
       </div>

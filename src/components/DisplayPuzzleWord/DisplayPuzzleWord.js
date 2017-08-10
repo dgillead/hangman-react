@@ -4,17 +4,24 @@ class DisplayPuzzleWord extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayWord: this.props.word.split('').map((letter) => { return '  ___  '} )
+      displayWord: this.updateWord()
     }
   }
 
-  // createDisplay() {
-  //   console.log(this.state.displayWordSplit);
-  //   let returnDisplay = this.state.displayWordSplit.forEach((letter) => {
-  //     returnDisplay += '_';
-  //   })
-  //   return returnDisplay;
-  // }
+  updateWord() {
+    let splitWord = this.props.word.split('');
+    let returnWord = '';
+    this.props.guessedLetters.forEach((letterGuessed) => {
+      splitWord.forEach((letter) => {
+        if (letter === letterGuessed) {
+          returnWord += letterGuessed;
+        } else {
+          returnWord += '_ ';
+        }
+      })
+    })
+    return returnWord;
+  }
 
   render() {
     return (
@@ -23,7 +30,6 @@ class DisplayPuzzleWord extends Component {
       </div>
     )
   }
-
 }
 
 export default DisplayPuzzleWord;
