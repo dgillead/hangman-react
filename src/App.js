@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import WORDS from './words'
+import DisplayPuzzleWord from './components/DisplayPuzzleWord/DisplayPuzzleWord';
 
 class App extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          <h1>{this.state.puzzleWord}</h1>
+          <DisplayPuzzleWord word={this.state.puzzleWord} guessedLetters={this.state.guessedLetters} />
         </p>
       </div>
     );
